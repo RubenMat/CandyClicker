@@ -1,6 +1,8 @@
 package com.example.dm2.candyclicker;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 
 /**
  * Created by dm2 on 09/02/2018.
@@ -27,7 +29,7 @@ public class GameLoopThread extends Thread {
             try {
                 c=view.getHolder().lockCanvas();
                 synchronized (view.getHandler()){
-                    for(int i = 0; i<10;i++)
+
                         view.onDraw(c);
                 }
             }finally {

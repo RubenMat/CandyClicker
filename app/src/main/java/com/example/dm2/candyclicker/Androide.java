@@ -5,6 +5,8 @@ import android.graphics.Canvas;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.List;
+
 public class Androide {
 
     private int x = 0;
@@ -24,13 +26,19 @@ public class Androide {
     }
 
     private void update() {
-        if (y<= vistaJuego.getHeight() - bmp.getHeight()) {
-            ySpeed = 3;
+        if (y<= vistaJuego.getHeight() - bmp.getHeight())
+            y += 5;
+        else {
+            vistaJuego.setVidas(vistaJuego.getVidas()-1);
+            vistaJuego.removeAndroide(this);
+            vistaJuego.comprobarVidas();
         }
-        else
-            ySpeed=0;
-        y=y+ySpeed;
+
+
+        //y=y+ySpeed;
     }
+
+
 
     public void onDraw(Canvas canvas) {
         update();
